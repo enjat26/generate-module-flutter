@@ -66,7 +66,7 @@ sed -i '' "s/Name/"$UCNAME"/gI" $NEW_TARGET_VIEW
 
 # cp $DIR_GIT/*
 rm "$DIR_GIT"/script.sh 
-mkdir -p "$DIR/$NAME" && cp -R $DIR_GIT/* $_
+mkdir -p "$DIR" && cp -R $DIR_GIT/* $_
 
 add_route=" \n GetPage(name: ' \/home ',page: () => "$UCNAME"Screen(),bindings: [ThemeBinding(), "$UCNAME"Binding()],),"
 
