@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 import '../controllers/name_controller.dart';
 
 // ignore: must_be_immutable
-class MainScreen extends StatelessWidget {
+class NameScreen extends StatelessWidget {
   final NameController _ctrlName = Get.find();
 
-  MainScreen({super.key});
+  NameScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
