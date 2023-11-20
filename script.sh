@@ -21,7 +21,7 @@ done
 
 NEW_TARGET_CONTROLLER="$DIR_GIT"/controllers/"$NAME"_controller.dart
 NEW_TARGET_BINDING="$DIR_GIT"/bindings/"$NAME"_binding.dart
-NEW_TARGET_VIEW="$DIR_GIT"/views/"$NAME"_view.dart
+NEW_TARGET_SCREEN="$DIR_GIT"/screens/"$NAME"_screen.dart
 
 # Check if required parameters are provided
 if [ -z "$DIR" ] || [ -z "$NAME" ]; then
@@ -36,7 +36,7 @@ git clone https://github.com/enjat26/"$DIR_GIT".git
 # Rename file form git
 mv "$DIR_GIT"/controllers/name_controller.dart $NEW_TARGET_CONTROLLER
 mv "$DIR_GIT"/bindings/name_binding.dart $NEW_TARGET_BINDING
-mv "$DIR_GIT"/views/name_screen.dart $NEW_TARGET_VIEW
+mv "$DIR_GIT"/screens/name_screen.dart $NEW_TARGET_SCREEN
 
 # Change name to UcFirst
 NEXT=1
@@ -58,11 +58,11 @@ done
 # Replace character
 sed -i '' "s/name_/"$NAME"_/gI" $NEW_TARGET_CONTROLLER
 sed -i '' "s/name_/"$NAME"_/gI" $NEW_TARGET_BINDING
-sed -i '' "s/name_/"$NAME"_/gI" $NEW_TARGET_VIEW
+sed -i '' "s/name_/"$NAME"_/gI" $NEW_TARGET_SCREEN
 
 sed -i '' "s/Name/"$UCNAME"/gI" $NEW_TARGET_CONTROLLER
 sed -i '' "s/Name/"$UCNAME"/gI" $NEW_TARGET_BINDING
-sed -i '' "s/Name/"$UCNAME"/gI" $NEW_TARGET_VIEW
+sed -i '' "s/Name/"$UCNAME"/gI" $NEW_TARGET_SCREEN
 
 # cp $DIR_GIT/*
 rm "$DIR_GIT"/script.sh 
@@ -70,7 +70,7 @@ mkdir -p "$DIR" && cp -R $DIR_GIT/* $_
 
 add_route=" \n GetPage(name: ' \/home ',page: () => "$UCNAME"Screen(),bindings: [ThemeBinding(), "$UCNAME"Binding()],),"
 
-sed -i -e "s/add_route/&$add_route/ " 'lib/routers/route_pages.dart'
+sed -i '' "s/add_route/&$add_route/ " 'lib/routers/route_pages.dart'
 
 rm -rf $DIR_GIT
 echo 'success generate module!'
